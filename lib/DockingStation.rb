@@ -1,15 +1,19 @@
  require_relative 'Bike.rb'
 class DockingStation
-  attr_reader :bikeDocked, :bike
-  @bikeDocked = false
-
+  attr_reader :bike
+  def initialize
+    @bike = Bike.new
+  end 
   def release_bike
-    return Bike.new
+    bikehold = @bike
+    raise "no bike to be released" unless @bike
+    @bike = nil
+    return bikehold
+
   end
 
   def dock_bike(bike)
     @bike = bike
-    @bikeDocked = true
   end
 
 end
