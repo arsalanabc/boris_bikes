@@ -15,13 +15,13 @@ describe DockingStation do
     expect(subject.bikes.last).to be_a(Bike)
   end
   it "returns an error when trying to get bike if empty" do
-    20.times{subject.release_bike}
+    $DEFAULT_CAPACITY.times{subject.release_bike}
     expect{subject.release_bike}.to raise_error("no bike to be released")
   end
   it "returns an error when trying to add a bike if one already exists" do
     expect{subject.dock_bike(Bike.new)}.to raise_error("can't have 20 bikes")
   end
   it "Starts with 20 bikes" do
-    expect(subject.bikes.length).to eq 20
+    expect(subject.bikes.length).to eq $DEFAULT_CAPACITY
   end
 end
