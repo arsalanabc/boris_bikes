@@ -1,11 +1,12 @@
  require_relative 'Bike.rb'
 class DockingStation
-  attr_reader :bikes
+  attr_reader :bikes, :capacity
   $DEFAULT_CAPACITY = 20
   #put 20 bikes on the rack
-  def initialize
+  def initialize(capacity=$DEFAULT_CAPACITY)
     @bikes = []
-    $DEFAULT_CAPACITY.times do
+    @capacity = capacity
+    @capacity.times do
       @bikes << Bike.new
     end
   end
@@ -25,7 +26,7 @@ class DockingStation
   private
   #check if full
   def full?
-    return @bikes.length == $DEFAULT_CAPACITY
+    return @bikes.length == @capacity
   end
 
   #check if empty
