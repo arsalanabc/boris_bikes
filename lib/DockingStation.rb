@@ -1,6 +1,7 @@
+ require 'Bike.rb'
 class DockingStation
 
   def release_bike
-    puts "response"
+    return Bike.new
   end
 end
