@@ -6,9 +6,7 @@ class DockingStation
   def initialize(capacity=$DEFAULT_CAPACITY)
     @bikes = []
     @capacity = capacity
-    @capacity.times do
-      @bikes << Bike.new
-    end
+    
   end
 
   #take a bike off
