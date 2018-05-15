@@ -28,4 +28,8 @@ describe DockingStation do
     a = DockingStation.new(3)
     expect(a.bikes.length).to eq 3
   end
+  it "Should not release a broken bike" do
+    subject.bikes[-1].working = false
+    expect{subject.release_bike}.to raise_error("Can't release broken bike")
+  end
 end

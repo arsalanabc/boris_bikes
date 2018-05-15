@@ -14,6 +14,7 @@ class DockingStation
   #take a bike off
   def release_bike
     raise "no bike to be released" if empty?
+    raise "Can't release broken bike" unless @bikes.last.working?
     return @bikes.pop
   end
 
