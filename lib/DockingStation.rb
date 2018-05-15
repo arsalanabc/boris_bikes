@@ -3,7 +3,7 @@ class DockingStation
   attr_reader :bike
   def initialize
     @bike = Bike.new
-  end 
+  end
   def release_bike
     bikehold = @bike
     raise "no bike to be released" unless @bike
@@ -13,6 +13,7 @@ class DockingStation
   end
 
   def dock_bike(bike)
+    raise "can't have 2 bikes" if @bike
     @bike = bike
   end
 
