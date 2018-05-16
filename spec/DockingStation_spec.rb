@@ -4,11 +4,21 @@ describe DockingStation do
     is_expected.to respond_to(:release_bike)
   end
 
+  # let(:bike) {double :bike}
+  # it "returns a working bike" do
+  #   subject.dock_bike double(:bike)
+  #   bike = subject.release_bike
+  #   allow(bike).to recieve(:working?).and_return(true)
+  #   expect(bike.working?).to eq(true) #eq(true)
+  # end
+
+
+  let(:bike_mock) {double :bike} # using double for bike
   it "returns a working bike" do
-    subject.dock_bike(Bike.new)
-    bike = subject.release_bike
-    expect(bike.working?).to eq(true) #eq(true)
+    allow(bike_mock).to receive(:working?).and_return(true)
+    expect(bike_mock.working?).to eq(true) #eq(true)
   end
+
   it "allows me to dock a bike" do
     is_expected.to respond_to(:dock_bike)
     subject.dock_bike(Bike.new)
