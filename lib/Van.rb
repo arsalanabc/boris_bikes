@@ -1,11 +1,14 @@
 class Van
 
- 	attr_reader :bikes, :broken_bikes, :working_bikes, :dockingstation
+ 	attr_reader :bikes, :broken_bikes, :working_bikes, :dockingstation,
+ 	:garage
 
- 	def initialize(dockstation = nil)
-# 		@broken_bikes @working_bikes = []
+ 	def initialize(dockstation = nil, garage=nil)
+# 		@broken_bikes = []
+#.  	@working_bikes = []
 		@bikes = []
 		@dockingstation = dockstation
+		@garage = garage
  	end
 
 # 	# load a bike to van
