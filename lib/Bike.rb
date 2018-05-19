@@ -7,7 +7,7 @@ class Bike
 
   #check if working
   def working?
-    return @working
+    @working
   end
 
 end

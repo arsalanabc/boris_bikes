@@ -4,8 +4,8 @@ class Van
  	:garage
 
  	def initialize(dockstation = nil, garage=nil)
-# 		@broken_bikes = []
-#.  	@working_bikes = []
+ 		@broken_bikes = []
+	  	@working_bikes = []
 		@bikes = []
 		@dockingstation = dockstation
 		@garage = garage
@@ -13,14 +13,15 @@ class Van
 
 # 	# load a bike to van
 	def load(bike)
-# 		@broken_bikes.push(bike) unless bike.working?
-# 		@working_bikes.push(bike) if bike.working?
+ 		@broken_bikes << bike unless bike.working?
+ 		@working_bikes << bike if bike.working?
 		@bikes << bike
 	end
 
 # 	# unload a bike to van
  	def unload
- 		
+ 		@broken_bikes  unless @garage.nil?
+ 		@working_bikes unless @dockstation.nil?
  		@bikes
 
 	end
