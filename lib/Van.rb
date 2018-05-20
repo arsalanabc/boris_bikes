@@ -1,12 +1,11 @@
 class Van
 
- 	attr_reader :bikes, :broken_bikes, :working_bikes, :dockingstation,
+ 	attr_reader :broken_bikes, :working_bikes, :dockingstation,
  	:garage
 
- 	def initialize(dockstation = nil, garage=nil)
+ 	def initialize(dockstation = nil, garage = nil)
  		@broken_bikes = []
 	  	@working_bikes = []
-		@bikes = []
 		@dockingstation = dockstation
 		@garage = garage
  	end
@@ -15,15 +14,13 @@ class Van
 	def load(bike)
  		@broken_bikes << bike unless bike.working?
  		@working_bikes << bike if bike.working?
-		@bikes << bike
+		
 	end
 
 # 	# unload a bike to van
  	def unload
- 		@broken_bikes  unless @garage.nil?
- 		@working_bikes unless @dockstation.nil?
- 		@bikes
+ 		return @broken_bikes  unless @garage.nil?
+ 		return @working_bikes unless @dockingstation.nil?	
 
 	end
 end
-

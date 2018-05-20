@@ -62,12 +62,14 @@ describe Van do
  			allow(m_bike).to receive(:working?).and_return(true)
  			
  			#act
- 			van = Van.new(mock_dockStation)
- 			m_bikes.each{|m_bike| van.load(m_bike) }
+ 			van = Van.new(m_ds, nil)
+ 			m_bikes.each{ |m_bike| van.load(m_bike) }
+ 			
  			
  			#arrange
  			allow(m_ds).to receive(:bikes).and_return(van.unload)
  			
+
  			#assert
  			expect(m_ds.bikes).to eq m_bikes
  		end
@@ -98,6 +100,7 @@ describe Van do
  			van = Van.new(nil, m_garage)
  			m_bikes.each{|m_bike| van.load(m_bike) }
  			
+
  			#arrange
  			allow(m_garage).to receive(:bikes).and_return(van.unload)
  			
